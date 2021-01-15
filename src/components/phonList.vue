@@ -1,11 +1,11 @@
 <template lang="html">
   <div>
     <ul>
-      <phonItem
-      v-for="(todo, i) in todos" :key="todo.title"
-      :todo="todo"
-      :index="i"
-      v-on:remov-todo="removTodo"
+    <phonItem
+       v-for="(numb, ix) in numbers" :key="numb.title"
+      :numb="numb"
+      :index="ix"
+      v-on:remov-numb="removNumb"
       />
     </ul>
   </div>
@@ -14,21 +14,19 @@
 <script>
 import phonItem from '@/components/phonItem';
 export default {
-  props: ['todos'],//данные от родителя к потомкам - с помощью пропс и директивы v-bind
+  props: ['numbers'],//данные от родителя к потомкам - с помощью пропс и директивы v-bind
   components: {
     phonItem
   },
-  //данные от потомка к родителю v-on  и методс но это не точно :)
   methods: {
-    removTodo(id) {
-      this.$emit( 'remov-todo', id )
-      //console.log(id)
+    removNumb(id) {
+    this.$emit( 'remov-numb', id )
     }
-  }
-};
+  },
+}
 </script>
 
-<style lang="css" scoped>
+<style scoped>
 ul {
   list-style: none;
   margin: 0;

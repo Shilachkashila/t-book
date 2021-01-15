@@ -1,45 +1,50 @@
 <template lang="html">
       <li>
-        <span :class="{done: todo.completed}">
-          <input type="checkbox" v-on:change="todo.completed =! todo.completed">
+        <!-- добавление динамического класса -->
+        <span>
           <strong>{{index + 1}}</strong>
-          {{todo.title}}
+          {{numb.title}}
         </span>
         <button type="button" name="button"
-        v-on:click="$emit('remov-todo', todo.id)"
-        >&times;</button>
+         v-on:click="$emit('remov-numb', numb.id)">
+        удалить</button>
       </li>
 </template>
 
 <script>
-export default {
-   props: {
-     todo: {
-     type: Object,
-     required: true
-   },
-  index: Number
- }
-};
+ export default {
+    props: {
+      numb: {
+      type: Object,
+      required: true
+    },
+    index: Number
+  }
+ };
 </script>
 
-<style lang="css" scoped>
+<style scoped>
 li {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   border: 1px solid #9966ff;
-  padding: 1rem;
+  padding: 8px;
   margin: 0 1rem 1rem;
 }
 input {
-  margin-right: 1rem;
+  margin: 0 1rem;
+}
+span {
+  margin-left: 10px;
 }
 button {
+  width: 80px;
+  height: 2rem;
   background-color: #993366;
+  border: 1px solid #993366;
+  border-radius: 8px;
   color: #C4C4C4;
   font-size: 16px;
-}
-.done {
-  text-decoration: line-through;
 }
 </style>
