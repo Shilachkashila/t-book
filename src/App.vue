@@ -1,46 +1,46 @@
 <template>
   <div id="app">
-      <h1 class="title">контакты</h1>
-      <span>1</span>
-      <!-- v-on прослушка событий через $emit-->
-        <formApp
-        v-on:add-numb="addNumb"
-        />
-        <p>нет контактов</p>
-        <phonList
-        :numbers="numbers"
-        v-on:remov-numb="removNumb"
-        />
+    <h1 class="title">контакты</h1>
+    <span
+    >{{counter}}</span>
+    <!-- v-on прослушка событий через $emit-->
+    <formAdd
+    v-on:add-numb="addNumb"
+    />
+    <p>нет контактов</p>
+    <phonList
+    :numbers="numbers"
+    v-on:remov-numb="removNumb"
+    />
   </div>
 </template>
 
 <script>
-import formApp from '@/components/formApp';
+import formAdd from '@/components/formAdd';
 import phonList from '@/components/phonList';
 
 export default {
 name: 'app',
 data () {
   return {
-    numbers: [
-    { id: 1, title: 111, completed: false },
-    { id: 2, title: 222, completed: false }
-  ]
-  }
+  numbers: [],
+  counter: 0,
+};
 },
 components: {
-  formApp,
+  formAdd,
   phonList,
 },
 methods: {
   removNumb(id) {
-  this.numbers = this.numbers.filter(t => t.id !==id)
+  this.numbers = this.numbers.filter(t => t.id !==id);
 },
   addNumb(numb) {
-    this.numbers.push(numb)
+  this.numbers.push(numb);
+  this.counter++;
   }
 },
-}
+};
 </script>
 
 <style>

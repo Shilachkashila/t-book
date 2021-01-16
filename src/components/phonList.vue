@@ -2,7 +2,7 @@
   <div>
     <ul>
     <phonItem
-       v-for="(numb, ix) in numbers" :key="numb.title"
+      v-for="(numb, ix) in numbers" :key="numb.ix"
       :numb="numb"
       :index="ix"
       v-on:remov-numb="removNumb"
@@ -20,10 +20,10 @@ export default {
   },
   methods: {
     removNumb(id) {
-    this.$emit( 'remov-numb', id )
+    this.$emit( 'remov-numb', id );
     }
   },
-}
+};
 </script>
 
 <style scoped>

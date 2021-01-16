@@ -3,7 +3,8 @@
     <!-- вместо обычного(prevent)поведения формы(submit)приниает(=)функцию(onSubmit) -->
     <form v-on:submit.prevent="onSubmit">
       <input type="text" v-model='title'>
-      <button type="submit" name="добавить">добавить</button>
+      <button type="submit" name="добавить"
+      >добавить</button>
     </form>
   </div>
 </template>
@@ -21,8 +22,9 @@ export default {
     console.log('Sabmit',this.title)
     // возможно использую для счётчика элементов
     if (this.title.trim()) {
-      const newNumb = { id: Date.now, title: this.title, completed: false }
+      const newNumb = { id: Date.now(), title: this.title, completed: false }
       this.$emit('add-numb', newNumb)
+      this.title = ''
     }
   }
 }
