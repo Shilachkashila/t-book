@@ -1,10 +1,10 @@
 <template lang="html">
       <li>
-        <!-- добавление динамического класса -->
-        <span>
+        <p>
           <strong>{{index + 1}}</strong>
-          {{numb.title}}
-        </span>
+          <span>{{numb.telephone}}</span>
+          <span>{{numb.title}}</span>
+        </p>
         <button type="button" name="button"
          v-on:click="$emit('remov-numb', numb.id)">
         удалить</button>
@@ -35,8 +35,12 @@ li {
 input {
   margin: 0 1rem;
 }
+p :first-child {
+  margin: 0 10px;
+  color: #FF9900;
+}
 span {
-  margin-left: 10px;
+  margin: 0 10px;
 }
 button {
   width: 80px;
@@ -45,6 +49,6 @@ button {
   border: 1px solid #993366;
   border-radius: 8px;
   color: #C4C4C4;
-  font-size: 16px;
+  font-size: 18px;
 }
 </style>

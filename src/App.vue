@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <h1 class="title">контакты</h1>
-    <span
+    <span class="counter"
     >{{counter}}</span>
     <!-- v-on прослушка событий через $emit-->
     <formAdd
     v-on:add-numb="addNumb"
     />
-    <p>нет контактов</p>
     <phonList
     :numbers="numbers"
     v-on:remov-numb="removNumb"
+    v-if="numbers.length"
     />
+    <p class="placeholder_visible"
+    v-else
+    >нет контактов</p>
   </div>
 </template>
 
@@ -34,6 +37,7 @@ components: {
 methods: {
   removNumb(id) {
   this.numbers = this.numbers.filter(t => t.id !==id);
+  this.counter--;
 },
   addNumb(numb) {
   this.numbers.push(numb);
@@ -65,5 +69,16 @@ methods: {
   line-height: 34px;
   color: #999999;
   text-transform:uppercase;
+}
+.counter {
+  margin-left: 10px;
+  color: #FF9900;
+  font-size: 16px;
+  font-weight: bold;
+}
+.placeholder_visible {
+  color: #FF9900;
+  font-size: 20px;
+  font-weight: bold;
 }
 </style>

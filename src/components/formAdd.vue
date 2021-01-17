@@ -2,8 +2,11 @@
   <div>
     <!-- вместо обычного(prevent)поведения формы(submit)приниает(=)функцию(onSubmit) -->
     <form v-on:submit.prevent="onSubmit">
-      <input type="text" v-model='title'>
-      <button type="submit" name="добавить"
+      <input type="text" name="phone-number" v-model='telephone'>
+      <input type="text" name="name" v-model='title'>
+      <button
+      v-on:keyup.enter="onSubmit"
+      type="submit" name="добавить"
       >добавить</button>
     </form>
   </div>
@@ -13,18 +16,18 @@ export default {
   name: "",
   data() {
     return {
-      title: ''
+      title: '',
+      telephone: '',
     }
   },
   methods: {
   onSubmit() {
-    // всё что в поле data доступно через ключевое слово this
-    console.log('Sabmit',this.title)
-    // возможно использую для счётчика элементов
-    if (this.title.trim()) {
-      const newNumb = { id: Date.now(), title: this.title, completed: false }
+    // всё что в поле data доступно через ключевое слово thiss
+    if (this.title.trim() && this.telephone.trim()) {
+      const newNumb = { id: Date.now(), telephone: this.telephone, title: this.title, completed: false }
       this.$emit('add-numb', newNumb)
       this.title = ''
+      this.telephone = ''
     }
   }
 }
@@ -43,8 +46,10 @@ input {
   box-sizing: border-box;
   height: 2rem;
   padding: 0 10px;
+  margin: 0 2px;
   font-size: 16px;
   border-color: transparent;
+  background-color: #cccccc;
 }
 button {
   height: 2rem;
