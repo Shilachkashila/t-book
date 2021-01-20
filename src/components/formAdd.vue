@@ -1,13 +1,17 @@
 <template>
   <div>
     <!-- вместо обычного(prevent)поведения формы(submit)приниает(=)функцию(onSubmit) -->
-    <form v-on:submit.prevent="onSubmit">
-      <input type="text" name="phone-number" v-model='telephone'>
-      <input type="text" name="name" v-model='title'>
+    <form autocomplete="off"
+    v-on:submit.prevent="onSubmit">
+      <!-- =<p v-if="errors.length">только цифры <span>1-9</span> дефис <span> - </span>скобки <span>()</span> </p> -->
+      <input type="text" maxlength="20" name="phoneNumber" placeholder="номер"
+      v-model='telephone'>
+      <input type="text" name="name" placeholder="имя"
+      v-model='title'>
       <button
       v-on:keyup.enter="onSubmit"
-      type="submit" name="добавить"
-      >добавить</button>
+      type="submit" name="добавить">
+      добавить</button>
     </form>
   </div>
 </template>
@@ -16,23 +20,31 @@ export default {
   name: "",
   data() {
     return {
+      // e=rrors: [],
       title: '',
       telephone: '',
-    }
+    };
   },
   methods: {
   onSubmit() {
-    // всё что в поле data доступно через ключевое слово thiss
-    if (this.title.trim() && this.telephone.trim()) {
-      const newNumb = { id: Date.now(), telephone: this.telephone, title: this.title, completed: false }
-      this.$emit('add-numb', newNumb)
-      this.title = ''
-      this.telephone = ''
+    if (!this.validPhoneNumber(this.telephone)) {
+      return false;
+    }
+     if (this.title.trim() && this.telephone.trim()) {
+      const newNumb = { id: Date.now(), telephone: this.telephone, title: this.title, completed: false };
+      this.$emit('add-numb', newNumb);
+      this.title = '';
+      this.telephone = '';
+    }
+    },
+  validPhoneNumber: function (telephone) {
+      var re = /[0-9()-]+/;
+      return re.test(telephone);
     }
   }
-}
-}
+};
 </script>
+
 <style scoped>
 div {
   margin-bottom: 1rem;
