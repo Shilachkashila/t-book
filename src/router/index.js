@@ -7,8 +7,12 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
+    // name: "Home",
     component: Home
+  },
+  {
+    path: "/phoneBook",
+    component: () => import("../views/phoneBook.vue")
   }
 ];
 

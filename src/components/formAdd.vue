@@ -6,7 +6,8 @@
       <p class="error" v-show="err">только цифры <span>1-9</span> дефис <span> - </span>скобки <span>()</span> </p>
       <input type="text" maxlength="20" name="phoneNumber" placeholder="номер"
       v-model='telephone'
-      :class="{border: err}" >
+      :class="{border: err}"
+      v-on:focus="numberFocus" >
       <input type="text" name="name" placeholder="имя"
       v-model='title'>
       <button
@@ -37,11 +38,15 @@ export default {
       this.$emit('add-numb', newNumb);
       this.title = '';
       this.telephone = '';
+      this.err = false;
     }
     },
   validPhoneNumber: function (telephone) {
       var re = /[0-9()-]+/;
       return re.test(telephone);
+    },
+  numberFocus() {
+       this.err = false;
     }
   }
 };
