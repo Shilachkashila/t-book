@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1 class="title">главная страница</h1>
+    <h1 class="title">моё приложение</h1>
     <hr>
     <router-view />
   </div>
@@ -19,26 +19,20 @@
   padding: 0;
   margin: 0;
 }
-.title {
-  display: inline-block;
+h1, h2, h3 {
   margin-top: 2rem;
   margin-bottom: 2rem;
   font-family: Montserrat;
   font-weight: 900;
-  font-size: 34px;
-  line-height: 34px;
   color: #999999;
   text-transform:uppercase;
 }
-.counter {
-  margin-left: 10px;
-  color: #FF9900;
-  font-size: 16px;
-  font-weight: bold;
+h1 {
+  font-size: 24px;
+  line-height: 24px;
 }
-.placeholder_visible {
-  color: #FF9900;
-  font-size: 20px;
-  font-weight: bold;
+h2 {
+  font-size: 34px;
+  line-height: 34px;
 }
 </style>

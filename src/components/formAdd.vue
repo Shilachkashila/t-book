@@ -17,6 +17,7 @@
     </form>
   </div>
 </template>
+
 <script>
 export default {
   name: "",
@@ -33,7 +34,7 @@ export default {
       this.err = true;
       return false;
     }
-     if (this.title.trim() && this.telephone.trim()) {
+    if (this.title.trim() && this.telephone.trim()) {
       const newNumb = { id: Date.now(), telephone: this.telephone, title: this.title, completed: false };
       this.$emit('add-numb', newNumb);
       this.title = '';
@@ -42,11 +43,11 @@ export default {
     }
     },
   validPhoneNumber: function (telephone) {
-      var re = /[0-9()-]+/;
-      return re.test(telephone);
+    var re = /[0-9()-]+/;
+    return re.test(telephone);
     },
   numberFocus() {
-       this.err = false;
+    this.err = false;
     }
   }
 };

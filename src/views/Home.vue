@@ -1,9 +1,13 @@
 <template>
 <div>
-  <p>главная</p>
+  <h2>главная</h2>
   <a href="/phoneBook">телефонная книга</a>
 </div>
 </template>
 
 <script>
 </script>
+
+ <style scoped>
+
+ </style>

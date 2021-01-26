@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="title">контакты</h2>
+    <h2 class="title_two">контакты</h2>
     <span class="counter"
     >{{counter}}</span>
     <!-- v-on прослушка событий через $emit-->
@@ -46,3 +46,20 @@ methods: {
 },
 };
 </script>
+
+<style scoped>
+.title_two {
+  display: inline-block;
+}
+.counter {
+  margin-left: 10px;
+  color: #FF9900;
+  font-size: 16px;
+  font-weight: bold;
+}
+.placeholder_visible {
+  color: #FF9900;
+  font-size: 20px;
+  font-weight: bold;
+}
+</style>
