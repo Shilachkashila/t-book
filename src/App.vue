@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <h1 class="title">моё приложение</h1>
+    <h1>моё приложение</h1>
     <hr>
+    <router-link :to="{ name: 'Home'}">home</router-link>
     <router-view />
   </div>
 </template>
@@ -34,5 +35,8 @@ h1 {
 h2 {
   font-size: 34px;
   line-height: 34px;
+}
+input {
+  font-size: 16px;
 }
 </style>

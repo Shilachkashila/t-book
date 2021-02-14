@@ -4,10 +4,3 @@
   <a href="/phoneBook">телефонная книга</a>
 </div>
 </template>
-
-<script>
-</script>
-
- <style scoped>
-
- </style>

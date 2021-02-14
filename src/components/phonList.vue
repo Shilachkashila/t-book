@@ -1,27 +1,31 @@
 <template lang="html">
   <div>
+    <phonListSearch/>
     <ul>
-    <phonItem
-      v-for="(numb, ix) in numbers" :key="numb.ix"
-      :numb="numb"
-      :index="ix"
-      v-on:remov-numb="removNumb"
-      />
+      <phonListItem
+        v-for="(numb, ix) in numbers" :key="numb.ix"
+        :numb="numb"
+        :index="ix"
+        v-on:remov-numb="removNumb"
+        />
     </ul>
   </div>
 </template>
 
 <script>
-import phonItem from '@/components/phonItem';
+import phonListItem from '@/components/phonListItem';
+import phonListSearch from '@/components/phonListSearch';
+
 export default {
-  props: ['numbers'],//данные от родителя к потомкам - с помощью пропс и директивы v-bind
-  components: {
-    phonItem
+components: {
+  phonListItem,
+  phonListSearch,
   },
-  methods: {
-    removNumb(id) {
-    this.$emit( 'remov-numb', id );
-    }
+props: ['numbers'],//данные от родителя к потомкам - с помощью пропс и директивы v-bind
+methods: {
+  removNumb(id) {
+  this.$emit( 'remov-numb', id );
+  }
   },
 };
 </script>

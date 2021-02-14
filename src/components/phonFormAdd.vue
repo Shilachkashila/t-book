@@ -3,11 +3,14 @@
     <!-- вместо обычного(prevent)поведения формы(submit)приниает(=)функцию(onSubmit) -->
     <form autocomplete="off"
     v-on:submit.prevent="onSubmit">
-      <p class="error" v-show="err">только цифры <span>1-9</span> дефис <span> - </span>скобки <span>()</span> </p>
+      <p class="error"
+       v-show="err">
+       только цифры <span>1-9</span> дефис <span> - </span>скобки <span>()</span>
+      </p>
       <input type="text" maxlength="20" name="phoneNumber" placeholder="номер"
       v-model='telephone'
       :class="{border: err}"
-      v-on:focus="numberFocus" >
+      v-on:focus="numberFocus">
       <input type="text" name="name" placeholder="имя"
       v-model='title'>
       <button
@@ -20,15 +23,15 @@
 
 <script>
 export default {
-  name: "",
-  data() {
-    return {
-      err: false,
-      title: '',
-      telephone: '',
-    };
-  },
-  methods: {
+name: "",
+data() {
+  return {
+    err: false,
+    title: '',
+    telephone: '',
+  };
+},
+methods: {
   onSubmit() {
     if (!this.validPhoneNumber(this.telephone)) {
       this.err = true;
@@ -49,7 +52,7 @@ export default {
   numberFocus() {
     this.err = false;
     }
-  }
+}
 };
 </script>
 
@@ -67,7 +70,6 @@ input {
   height: 2rem;
   padding: 0 10px;
   margin: 0 2px;
-  font-size: 16px;
   border-color: transparent;
   background-color: #cccccc;
 }
@@ -78,7 +80,7 @@ button {
   border-radius: 8px;
   background-color: #C4C4C4;
   color: #993366;
-  font-size: 16px;
+  font-size: 18px;
 }
 span {
   background-color: #C4C4C4;

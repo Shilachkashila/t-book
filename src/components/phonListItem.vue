@@ -13,14 +13,14 @@
 
 <script>
  export default {
-  props: {
-    numb: {
-    type: Object,
-    required: true
+props: {
+  numb: {
+  type: Object,
+  required: true
   },
   index: Number
-  }
- };
+}
+};
 </script>
 
 <style scoped>
