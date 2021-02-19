@@ -2,7 +2,9 @@
   <div id="app">
     <h1>моё приложение</h1>
     <hr>
-    <router-link :to="{ name: 'Home'}">home</router-link>
+    <router-link
+      to="/Home">
+      home</router-link>
     <router-view />
   </div>
 </template>

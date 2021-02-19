@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 // 1. Определяем компоненты для маршрутов.
 // Они могут быть импортированы из других файлов
-import Home from "@/views/Home";
+// import Home from "@/views/Home";
 
 Vue.use(VueRouter);
 
@@ -12,14 +12,14 @@ Vue.use(VueRouter);
 // через `Vue.extend()`, так и просто объект с опциями компонента.
 const routes = [
   {
-    path: "/",
-    name: "Home",
-    component: Home
+    path: "/Phone-book",
+    component: () => import("@/views/Phone-book")
   },
   {
-    path: "/phoneBook",
-    component: () => import("../views/phoneBook.vue")
+    path: "/Home",
+    component: () => import("@/views/Home")
   }
+
 ];
 
 // 3. Создаём экземпляр маршрутизатора и передаём маршруты в опции `routes`

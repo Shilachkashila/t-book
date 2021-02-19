@@ -1,25 +1,25 @@
 <template lang="html">
   <li>
     <p>
-      <strong>{{index + 1}}</strong>
-      <span>{{numb.telephone}}</span>
-      <span>{{numb.title}}</span>
+      <strong>{ {index + 1} }</strong>
+      <span>{ {number.telephone} }</span>
+      <span>{ {number.title} }</span>
     </p>
     <button type="button" name="button"
-     v-on:click="$emit('remov-numb', numb.id)">
-    удалить</button>
+      @click="$emit('remove-number', number.id)"
+      >удалить</button>
   </li>
 </template>
 
 <script>
  export default {
-props: {
-  numb: {
-  type: Object,
-  required: true
-  },
-  index: Number
-}
+  props: {
+    number: {
+    type: Object,
+    required: true
+    },
+    index: Number
+  }
 };
 </script>
 

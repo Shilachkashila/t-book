@@ -1,11 +1,8 @@
 <template>
-<form autocomplete="off">
-  <input type="text" name="search" placeholder="поиск имени">
-</form>
+  <form autocomplete="off">
+    <input type="text" name="search" placeholder="поиск имени">
+  </form>
 </template>
-
-<script>
-</script>
 
  <style scoped>
 input {
