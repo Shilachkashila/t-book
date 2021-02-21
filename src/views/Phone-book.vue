@@ -5,7 +5,7 @@
       {{ counter }}
     </span>
     <!-- v-on прослушка событий через $emit-->
-    <phoneFormAdd
+    <phoneFormAddnumbers
       @add-number="addNumber"
       />
     <phoneList
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import phoneFormAdd from '@/components/phoneFormAdd';
+import phoneFormAddnumbers from '@/components/phoneFormAddnumbers';
 import phoneList from '@/components/phoneList';
 
 export default {
@@ -32,7 +32,7 @@ data () {
 };
 },
 components: {
-  phoneFormAdd,
+  phoneFormAddnumbers,
   phoneList,
 },
 methods: {

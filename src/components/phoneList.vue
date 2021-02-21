@@ -21,7 +21,12 @@ export default {
     phoneListItem,
     phoneListSearch,
     },
-  props: ['numbers'],//данные от родителя к потомкам - с помощью пропс и директивы v-bind
+    //props:['numbers'], данные от родителя к потомкам - с помощью пропс и директивы v-bind
+  props: {
+    numbers: {
+      type: Array,
+    }
+  },
   methods: {
     removeNumber(id) {
       this.$emit( 'remove-number', id );
